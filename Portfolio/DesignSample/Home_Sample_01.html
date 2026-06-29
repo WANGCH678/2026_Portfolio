@@ -1,0 +1,361 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Wang Cheolhwan - Portfolio</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Inter:wght@300;400;500&amp;family=Noto+Serif+SC:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Guidance -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#0a1f1d",
+                      "surface-variant": "#e7e2dc",
+                      "primary-container": "#65acc1",
+                      "inverse-surface": "#32302c",
+                      "secondary-fixed": "#b8eaff",
+                      "on-surface": "#1d1b18",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#001f28",
+                      "mist-blue": "#e0eaec",
+                      "background": "#fef9f2",
+                      "secondary": "#2b6579",
+                      "surface-bright": "#fef9f2",
+                      "ink-light": "#5a5855",
+                      "outline": "#6f797c",
+                      "primary-fixed": "#b0ecff",
+                      "on-background": "#1d1b18",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#001f27",
+                      "tertiary-fixed": "#d0e7e4",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed-dim": "#97cfe5",
+                      "paper-canvas": "#f4f2ec",
+                      "inverse-primary": "#8ad1e7",
+                      "outline-variant": "#bfc8cc",
+                      "on-surface-variant": "#3f484b",
+                      "on-primary-container": "#003e4c",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#91a7a4",
+                      "secondary-container": "#b0e8ff",
+                      "surface": "#fef9f2",
+                      "inverse-on-surface": "#f5f0ea",
+                      "surface-container-high": "#ece7e1",
+                      "surface-container": "#f2ede7",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e7e2dc",
+                      "on-secondary-fixed-variant": "#064d60",
+                      "primary-fixed-dim": "#8ad1e7",
+                      "surface-tint": "#11677a",
+                      "primary": "#11677a",
+                      "tertiary": "#4e6260",
+                      "on-tertiary-container": "#293d3b",
+                      "surface-dim": "#ded9d3",
+                      "on-tertiary-fixed-variant": "#364b48",
+                      "tertiary-fixed-dim": "#b5cbc8",
+                      "on-secondary-container": "#306a7e",
+                      "ink-dark": "#2a2927",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#004e5e",
+                      "surface-container-low": "#f8f3ed"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-padding": "100px",
+                      "margin-vh": "18vh",
+                      "gap-nav": "3rem",
+                      "gutter-vw": "4vw",
+                      "card-inner": "24px"
+              },
+              "fontFamily": {
+                      "nav-en": ["EB Garamond", "serif"],
+                      "label-caps": ["Inter", "sans-serif"],
+                      "display-vertical": ["Noto Serif SC", "serif"],
+                      "headline-lg-mobile": ["Noto Serif SC", "serif"],
+                      "accent-heading": ["EB Garamond", "serif"],
+                      "body-md": ["Noto Serif SC", "serif"],
+                      "headline-lg": ["Noto Serif SC", "serif"],
+                      "nav-cn": ["Noto Serif SC", "serif"],
+                      "body-sm": ["Noto Serif SC", "serif"],
+                      "pretendard": ["Pretendard", "sans-serif"],
+                      "cormorant": ["Cormorant Garamond", "serif"]
+              },
+              "fontSize": {
+                      "nav-en": ["12px", { "lineHeight": "1.0", "fontWeight": "400" }],
+                      "label-caps": ["10px", { "lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "500" }],
+                      "display-vertical": ["44px", { "lineHeight": "1.2", "letterSpacing": "0.8em", "fontWeight": "300" }],
+                      "headline-lg-mobile": ["24px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                      "accent-heading": ["22px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                      "body-md": ["16px", { "lineHeight": "1.7", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                      "headline-lg": ["32px", { "lineHeight": "1.4", "letterSpacing": "-0.03em", "fontWeight": "300" }],
+                      "nav-cn": ["18px", { "lineHeight": "1.0", "fontWeight": "400" }],
+                      "body-sm": ["14px", { "lineHeight": "1.6", "fontWeight": "400" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .nav-group:hover .nav-item {
+            opacity: 0.3;
+        }
+        .nav-group .nav-item:hover {
+            opacity: 1;
+        }
+        
+        .nav-underline {
+            position: relative;
+        }
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #65acc1;
+            transition: width 0.3s ease-out;
+        }
+        .nav-item:hover .nav-underline::after {
+            width: 100%;
+        }
+
+        .custom-fallback-bg {
+            background: linear-gradient(135deg, #f0ebe5 0%, #e0eaec 45%, #a0d8ef 100%);
+        }
+    </style>
+</head>
+<body class="w-screen h-screen overflow-hidden bg-background text-on-surface m-0 p-0 font-pretendard">
+<!-- Layout Wrapper -->
+<div class="flex flex-col w-full h-full relative z-0">
+<!-- Top Margin Band -->
+<div class="w-full h-margin-vh backdrop-blur-md" style="background-color: rgba(240,235,229,0.7); z-index: 10;"></div>
+<!-- Middle Canvas Area -->
+<div class="flex-grow relative custom-fallback-bg overflow-hidden flex items-center justify-center">
+<!-- WebGL Shader Background -->
+<div class="absolute inset-0 w-full h-full opacity-60 mix-blend-multiply z-0">
+<!-- STITCH_SHADER_START:ANIMATION_10 class="absolute inset-0 w-full h-full" -->
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_10" style="display:block;width:100%;height:100%" width="1280" height="655"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_10');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `
+            precision highp float;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+
+            // Simplex 2D noise
+            vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+            float snoise(vec2 v){
+                const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                        -0.577350269189626, 0.024390243902439);
+                vec2 i  = floor(v + dot(v, C.yy) );
+                vec2 x0 = v -   i + dot(i, C.xx);
+                vec2 i1;
+                i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+                vec4 x12 = x0.xyxy + C.xxzz;
+                x12.xy -= i1;
+                i = mod(i, 289.0);
+                vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+                + i.x + vec3(0.0, i1.x, 1.0 ));
+                vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+                m = m*m ;
+                m = m*m ;
+                vec3 x = 2.0 * fract(p * C.www) - 1.0;
+                vec3 h = abs(x) - 0.5;
+                vec3 ox = floor(x + 0.5);
+                vec3 a0 = x - ox;
+                m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+                vec3 g;
+                g.x  = a0.x  * x0.x  + h.x  * x0.y;
+                g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+                return 130.0 * dot(m, g);
+            }
+
+            float fbm(vec2 st) {
+                float value = 0.0;
+                float amplitude = 0.5;
+                float frequency = 0.0;
+                for (int i = 0; i < 5; i++) {
+                    value += amplitude * snoise(st);
+                    st *= 2.0;
+                    amplitude *= 0.5;
+                }
+                return value;
+            }
+
+            void main() {
+                vec2 st = gl_FragCoord.xy / u_resolution.xy;
+                float aspect = u_resolution.x / u_resolution.y;
+                st.x *= aspect;
+
+                float time = u_time * 0.05;
+
+                vec2 q = vec2(0.);
+                q.x = fbm(st + vec2(time));
+                q.y = fbm(st + vec2(1.0));
+
+                vec2 r = vec2(0.);
+                r.x = fbm(st + 1.0*q + vec2(1.7,9.2)+ 0.15*time);
+                r.y = fbm(st + 1.0*q + vec2(8.3,2.8)+ 0.126*time);
+
+                float f = fbm(st + r);
+
+                // Design System Colors
+                vec3 mistBlue = vec3(0.878, 0.918, 0.925); // #e0eaec
+                vec3 skyBlue = vec3(0.627, 0.847, 0.937);  // #a0d8ef
+                vec3 grayBlue = vec3(0.612, 0.698, 0.686); // #9cb2af
+                vec3 ivory = vec3(0.941, 0.922, 0.898);    // #f0ebe5
+
+                vec3 color = mix(ivory, mistBlue, clamp((f*f)*4.0, 0.0, 1.0));
+                color = mix(color, skyBlue, clamp(length(q), 0.0, 1.0) * 0.6);
+                color = mix(color, grayBlue, clamp(length(r.x), 0.0, 1.0) * 0.4);
+                
+                float grain = fract(sin(dot(st.xy ,vec2(12.9898,78.233))) * 43758.5453) * 0.02;
+                color += grain;
+
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_10 -->
+</div>
+<!-- Optional subtle texture overlay for atmospheric depth -->
+<div class="absolute inset-0 bg-[url('placeholder')] opacity-[0.03] mix-blend-overlay z-10" data-alt="A subtle, high-key, fine-grained handmade paper texture with extremely delicate, barely visible organic fibers scattered across the surface. The aesthetic is clean, minimalist, and serene, fitting a light mode oriental solitude theme. Soft, diffused lighting creates minimal contrast, ensuring the texture remains purely atmospheric without drawing attention."></div>
+</div>
+<!-- Bottom Margin Band -->
+<div class="w-full h-margin-vh backdrop-blur-md" style="background-color: rgba(224,234,236,0.6); z-index: 10;"></div>
+</div>
+<!-- CONTENT LAYER (Absolute, z-index 20) -->
+<div class="absolute inset-0 w-full h-full pointer-events-none z-20">
+<!-- Interactive Elements Wrapper (re-enable pointer events for content) -->
+<div class="absolute inset-0 pointer-events-auto">
+<!-- 1. Left Navigation -->
+<nav class="absolute left-[14vw] top-[389px]">
+<ul class="flex flex-col gap-[2.8rem] nav-group">
+<li class="nav-item cursor-pointer transition-opacity duration-500 w-fit group">
+<div class="flex flex-col gap-1">
+<span class="nav-underline font-pretendard font-light" style="font-size: 1.15rem; letter-spacing: 0.3em; color: #4f6265;">회사 프로젝트</span>
+<span class="font-cormorant italic tracking-wide" style="font-size: 0.78rem; color: #9cb2af;">Company Projects</span>
+</div>
+</li>
+<li class="nav-item cursor-pointer transition-opacity duration-500 w-fit group">
+<div class="flex flex-col gap-1">
+<span class="nav-underline font-pretendard font-light" style="font-size: 1.15rem; letter-spacing: 0.3em; color: #4f6265;">개인 프로젝트</span>
+<span class="font-cormorant italic tracking-wide" style="font-size: 0.78rem; color: #9cb2af;">Personal Projects</span>
+</div>
+</li>
+<li class="nav-item cursor-pointer transition-opacity duration-500 w-fit group">
+<div class="flex flex-col gap-1">
+<span class="nav-underline font-pretendard font-light" style="font-size: 1.15rem; letter-spacing: 0.3em; color: #4f6265;">소개</span>
+<span class="font-cormorant italic tracking-wide" style="font-size: 0.78rem; color: #9cb2af;">About</span>
+</div>
+</li>
+</ul>
+</nav>
+<!-- 2. Right Bottom Info Block -->
+<div class="absolute right-[18vw] bottom-[327px] text-left flex flex-col gap-2">
+<div class="flex flex-col">
+<span class="font-cormorant font-light" style="font-size: 1.35rem; color: #4f6265;">Frontend Developer</span>
+<span class="font-cormorant font-light" style="font-size: 1.1rem; color: #4f6265;">Wang Cheolhwan</span>
+</div>
+<div class="flex flex-col mt-2">
+<span class="font-pretendard font-light" style="font-size: 1rem; letter-spacing: 0.4em; color: #6f7f82;">왕 철 환</span>
+<span class="font-pretendard font-light mt-1" style="font-size: 0.72rem; letter-spacing: 0.18em; color: #9cb2af;">React 프론트엔드 개발자</span>
+</div>
+</div>
+<!-- 3. Footer -->
+<div class="absolute left-[8vw] bottom-[92px]">
+<span class="font-pretendard font-light" style="font-size: 0.75rem; letter-spacing: 0.2em; color: #9cb2af;">2026년 · 개인 포트폴리오</span>
+</div>
+</div>
+</div>
+</body></html>

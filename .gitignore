@@ -1,0 +1,5 @@
+Portfolio/web/node_modules
+Portfolio/web/dist
+.env
+.env.local
+.DS_Store

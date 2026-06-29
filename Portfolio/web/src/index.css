@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system, system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+
+  /* ── 디자인 가이드 색상 토큰 ─────────────────────────── */
+  --sky-blue-100:   #a0d8ef;   /* 포인트 배경, 라벨, 얇은 라인 */
+  --mist-blue-100:  #e0eaec;   /* 메인 배경, 카드 배경         */
+  --warm-ivory-100: #f0ebe5;   /* 여백 배경, 텍스트 박스       */
+  --cider-blue-500: #65acc1;   /* 주요 버튼, 강조, active      */
+  --gray-blue-500:  #9cb2af;   /* 보조 텍스트, 비활성 UI       */
+
+  /* Typography */
+  --color-title:   #4f6265;
+  --color-body:    #6f7f82;
+  --color-muted:   #9cb2af;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  background-color: var(--mist-blue-100);
+  color: var(--color-title);
+}
+
+::selection {
+  background-color: var(--cider-blue-500);
+  color: #fff;
+}
+
+/* Scrollbar — MUSÉE thin style */
+::-webkit-scrollbar { height: 3px; width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--sky-blue-100); }

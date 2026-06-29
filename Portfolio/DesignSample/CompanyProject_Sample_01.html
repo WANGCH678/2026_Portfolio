@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WANG - Projects (Ivory Theme)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Noto+Serif+KR:wght@300;400;500;700&amp;family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "ink-light": "#5a5855",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e7e2dc",
+                        "primary": "#11677a",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#bfc8cc",
+                        "surface-dim": "#ded9d3",
+                        "primary-fixed": "#b0ecff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#b5cbc8",
+                        "tertiary-fixed": "#d0e7e4",
+                        "surface-container-high": "#ece7e1",
+                        "on-background": "#1d1b18",
+                        "ink-dark": "#2a2927",
+                        "secondary-container": "#b0e8ff",
+                        "on-secondary-fixed-variant": "#064d60",
+                        "secondary-fixed-dim": "#97cfe5",
+                        "on-secondary-fixed": "#001f28",
+                        "tertiary-container": "#91a7a4",
+                        "surface-container": "#f2ede7",
+                        "surface-bright": "#fef9f2",
+                        "inverse-surface": "#32302c",
+                        "surface": "#F5F2EE", /* Overridden to Warm Ivory per prompt */
+                        "on-surface-variant": "#3f484b",
+                        "on-primary-fixed": "#001f27",
+                        "inverse-on-surface": "#f5f0ea",
+                        "paper-canvas": "#f4f2ec",
+                        "on-tertiary-fixed": "#0a1f1d",
+                        "tertiary": "#4e6260",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#b8eaff",
+                        "primary-container": "#65acc1",
+                        "surface-container-low": "#f8f3ed",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#2b6579",
+                        "on-tertiary-fixed-variant": "#364b48",
+                        "on-primary-container": "#003e4c",
+                        "primary-fixed-dim": "#8ad1e7",
+                        "on-primary-fixed-variant": "#004e5e",
+                        "on-surface": "#1d1b18",
+                        "mist-blue": "#e0eaec",
+                        "outline": "#6f797c",
+                        "background": "#F5F2EE", /* Overridden to Warm Ivory per prompt */
+                        "inverse-primary": "#8ad1e7",
+                        "on-secondary-container": "#306a7e",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#11677a",
+                        "surface-container-highest": "#e7e2dc",
+                        "on-tertiary-container": "#293d3b",
+                        "surface-container-lowest": "#ffffff",
+                        
+                        /* Custom prompt colors */
+                        "nav-active": "#4f6265",
+                        "nav-underline": "#65acc1"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "section-padding": "100px",
+                        "margin-vh": "18vh",
+                        "gap-nav": "3rem",
+                        "gutter-vw": "4vw",
+                        "card-inner": "24px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Noto Serif SC"],
+                        "display-vertical": ["Noto Serif SC"],
+                        "body-sm": ["Noto Serif KR"],
+                        "nav-cn": ["Noto Serif KR"],
+                        "headline-lg": ["Cormorant Garamond"],
+                        "nav-en": ["Cormorant Garamond"],
+                        "label-caps": ["Inter"],
+                        "accent-heading": ["Cormorant Garamond"],
+                        "body-md": ["Noto Serif KR"],
+                        "brand": ["Cormorant Garamond"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "display-vertical": ["44px", { "lineHeight": "1.2", "letterSpacing": "0.8em", "fontWeight": "300" }],
+                        "body-sm": ["14px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "nav-cn": ["18px", { "lineHeight": "1.0", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "nav-en": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "500" }],
+                        "accent-heading": ["28px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.7", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom horizontal scroll container for museum gallery feel */
+        .gallery-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        .gallery-scroll-container::-webkit-scrollbar {
+            display: none; /* WebKit */
+        }
+        
+        .gallery-item {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+        }
+
+        /* Alternating vertical offsets for rhythm */
+        .offset-up { transform: translateY(-40px); }
+        .offset-down { transform: translateY(40px); }
+
+        /* Atmospheric halos and blends */
+        .atmospheric-text {
+            text-shadow: 0 0 20px rgba(240, 235, 229, 0.5);
+        }
+        .blend-multiply {
+            mix-blend-mode: multiply;
+        }
+        
+        /* Smooth fade for navigation underline */
+        .nav-underline-anim::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -6px;
+            left: 0;
+            background-color: #65acc1; /* Primary */
+            transform-origin: bottom right;
+            transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .nav-underline-anim:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .nav-active-state::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -6px;
+            left: 0;
+            background-color: #65acc1;
+        }
+        
+        /* Custom Gradients from Prompt */
+        .grad-hanwha { background: linear-gradient(135deg, #f0ebe5, #d4c9bc, #9cb2af); }
+        .grad-tongil { background: linear-gradient(135deg, #f5f2ee, #e0d8ce, #c4bab0); }
+        .grad-gscaltex { background: linear-gradient(135deg, #e8ddd4, #c9b8a8, #9cb2af); }
+        .grad-ktg { background: linear-gradient(135deg, #f0ebe5, #a0d8ef); }
+        .grad-gsoil { background: linear-gradient(135deg, #e8e4de, #bdc8c5); }
+        .grad-skb { background: linear-gradient(135deg, #f0ebe5, #d4e8f0, #a0d8ef); }
+        
+        /* Minimalist noise overlay to evoke "warm ivory museum wall" */
+        .noise-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary/20 overflow-hidden relative font-body-md h-screen flex flex-col">
+<!-- Subtle texture overlay -->
+<div class="noise-bg"></div>
+<!-- Top Navigation Area -->
+<nav class="fixed top-0 w-full z-40 px-gutter-vw py-8 flex justify-between items-center bg-surface/72 backdrop-blur-xl border-b-[0.5px] border-outline/20">
+<!-- Left: Navigation Links -->
+<div class="flex items-center gap-nav text-body-sm tracking-wide">
+<a class="relative nav-active-state text-nav-active font-medium transition-opacity duration-300" href="#">회사 프로젝트</a>
+<a class="relative nav-underline-anim text-ink-light/60 hover:text-ink-light transition-opacity duration-300" href="#">개인 프로젝트</a>
+<a class="relative nav-underline-anim text-ink-light/60 hover:text-ink-light transition-opacity duration-300" href="#">소개</a>
+</div>
+<!-- Center: Brand Anchor -->
+<div class="absolute left-1/2 transform -translate-x-1/2 font-headline-lg text-headline-lg text-ink-dark tracking-widest uppercase">
+            WANG
+        </div>
+<!-- Right: Metadata -->
+<div class="font-nav-en text-nav-en text-ink-light tracking-widest uppercase">
+            Seoul, KR — 2026
+        </div>
+</nav>
+<!-- Main Content: Horizontal Scroll Gallery -->
+<main class="flex-grow w-full h-full pt-32 pb-24 flex items-center relative z-10">
+<!-- Gallery Scroll Container -->
+<div class="gallery-scroll-container w-full h-full items-center px-[20vw] gap-32">
+<!-- Intro Spacer / Title area -->
+<div class="gallery-item w-[20vw] flex-shrink-0 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-primary mb-4 tracking-[0.2em]">COLLECTION 01</span>
+<h1 class="font-headline-lg text-[4rem] leading-[1.1] font-light text-ink-dark mb-6">Corporate<br/>Archives</h1>
+<p class="font-body-sm text-body-sm text-ink-light max-w-xs leading-relaxed">
+                    A curated selection of enterprise platforms, operational dashboards, and digital ecosystems developed between 2021 and present.
+                </p>
+<div class="mt-12 h-[1px] w-16 bg-outline/30"></div>
+</div>
+<!-- Project 1: Hanwha CRM -->
+<article class="gallery-item w-[35vw] min-w-[400px] max-w-[600px] offset-up group cursor-pointer">
+<!-- Accession Number -->
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-caps text-label-caps text-ink-light/50">ARC.001</span>
+<div class="h-[1px] flex-grow bg-outline/20"></div>
+</div>
+<!-- Visual Canvas -->
+<div class="w-full aspect-[4/5] grad-hanwha rounded-sm relative overflow-hidden mb-8 shadow-[0_20px_40px_rgba(0,0,0,0.03)] border-[0.5px] border-white/20 transition-transform duration-700 ease-out group-hover:scale-[1.02]">
+<!-- Abstract geometric mock visual within card to look premium without real images -->
+<div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48Zz48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMSIgZD0iTTAgMGw0MDAgNDAwTTAgNDAwbDQwMC00MDAiLz48L2c+PC9zdmc+')] mix-blend-overlay"></div>
+<div class="absolute bottom-6 left-6 right-6 p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-sm">
+<div class="h-2 w-12 bg-white/40 mb-3 rounded-full"></div>
+<div class="h-2 w-24 bg-white/20 rounded-full"></div>
+</div>
+</div>
+<!-- Typography / Details -->
+<div class="flex flex-col">
+<h2 class="font-accent-heading text-accent-heading text-ink-dark mb-2 group-hover:text-primary transition-colors duration-300">Hanwha CRM Redesign</h2>
+<p class="font-body-sm text-body-sm text-ink-light leading-relaxed">Enterprise customer relationship management portal focusing on data visualization and modular workflows.</p>
+</div>
+</article>
+<!-- Project 2: Tongil & Nanum -->
+<article class="gallery-item w-[30vw] min-w-[350px] max-w-[500px] offset-down group cursor-pointer">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-caps text-label-caps text-ink-light/50">ARC.002</span>
+<div class="h-[1px] flex-grow bg-outline/20"></div>
+</div>
+<div class="w-full aspect-[3/4] grad-tongil rounded-sm relative overflow-hidden mb-8 shadow-[0_20px_40px_rgba(0,0,0,0.03)] border-[0.5px] border-white/20 transition-transform duration-700 ease-out group-hover:scale-[1.02]">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-[0.5px] border-ink-light/10 rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="font-accent-heading text-accent-heading text-ink-dark mb-2 group-hover:text-primary transition-colors duration-300">Tongil &amp; Nanum</h2>
+<p class="font-body-sm text-body-sm text-ink-light leading-relaxed">Foundation platform restructuring to enhance donor engagement and archival storytelling.</p>
+</div>
+</article>
+<!-- Project 3: GS Caltex Dashboard -->
+<article class="gallery-item w-[35vw] min-w-[400px] max-w-[600px] offset-up group cursor-pointer">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-caps text-label-caps text-ink-light/50">ARC.003</span>
+<div class="h-[1px] flex-grow bg-outline/20"></div>
+</div>
+<div class="w-full aspect-video grad-gscaltex rounded-sm relative overflow-hidden mb-8 shadow-[0_20px_40px_rgba(0,0,0,0.03)] border-[0.5px] border-white/20 transition-transform duration-700 ease-out group-hover:scale-[1.02] flex items-center justify-center">
+<div class="w-2/3 h-1/2 border-[0.5px] border-ink-light/10 rounded-sm grid grid-cols-3 gap-2 p-2">
+<div class="bg-ink-light/5 rounded-sm"></div>
+<div class="bg-ink-light/5 rounded-sm col-span-2"></div>
+<div class="bg-ink-light/5 rounded-sm col-span-3"></div>
+</div>
+</div>
+<div class="flex flex-col">
+<h2 class="font-accent-heading text-accent-heading text-ink-dark mb-2 group-hover:text-primary transition-colors duration-300">GS Caltex Dashboard</h2>
+<p class="font-body-sm text-body-sm text-ink-light leading-relaxed">Internal analytics dashboard for real-time energy resource monitoring and predictive maintenance tracking.</p>
+</div>
+</article>
+<!-- Project 4: KT&G -->
+<article class="gallery-item w-[28vw] min-w-[320px] max-w-[450px] offset-down group cursor-pointer">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-caps text-label-caps text-ink-light/50">ARC.004</span>
+<div class="h-[1px] flex-grow bg-outline/20"></div>
+</div>
+<div class="w-full aspect-[4/5] grad-ktg rounded-sm relative overflow-hidden mb-8 shadow-[0_20px_40px_rgba(0,0,0,0.03)] border-[0.5px] border-white/20 transition-transform duration-700 ease-out group-hover:scale-[1.02]">
+<div class="absolute right-0 top-0 w-3/4 h-full bg-gradient-to-l from-white/20 to-transparent"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="font-accent-heading text-accent-heading text-ink-dark mb-2 group-hover:text-primary transition-colors duration-300">KT&amp;G Global Gateway</h2>
+<p class="font-body-sm text-body-sm text-ink-light leading-relaxed">Corporate site overhaul prioritizing international brand presence and sustainability initiatives.</p>
+</div>
+</article>
+<!-- Project 5: GS Oil -->
+<article class="gallery-item w-[32vw] min-w-[380px] max-w-[550px] offset-up group cursor-pointer">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-caps text-label-caps text-ink-light/50">ARC.005</span>
+<div class="h-[1px] flex-grow bg-outline/20"></div>
+</div>
+<div class="w-full aspect-[16/10] grad-gsoil rounded-sm relative overflow-hidden mb-8 shadow-[0_20px_40px_rgba(0,0,0,0.03)] border-[0.5px] border-white/20 transition-transform duration-700 ease-out group-hover:scale-[1.02]">
+<div class="absolute left-8 bottom-8 w-16 h-16 rounded-full bg-ink-light/5 mix-blend-multiply"></div>
+<div class="absolute left-20 bottom-12 w-24 h-24 rounded-full bg-ink-light/5 mix-blend-multiply"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="font-accent-heading text-accent-heading text-ink-dark mb-2 group-hover:text-primary transition-colors duration-300">GS Oil Ecosystem</h2>
+<p class="font-body-sm text-body-sm text-ink-light leading-relaxed">B2B portal unifying procurement, logistics tracking, and vendor management systems.</p>
+</div>
+</article>
+<!-- Project 6: SK Broadband -->
+<article class="gallery-item w-[30vw] min-w-[350px] max-w-[500px] offset-down group cursor-pointer pr-[20vw]">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-caps text-label-caps text-ink-light/50">ARC.006</span>
+<div class="h-[1px] flex-grow bg-outline/20"></div>
+</div>
+<div class="w-full aspect-square grad-skb rounded-sm relative overflow-hidden mb-8 shadow-[0_20px_40px_rgba(0,0,0,0.03)] border-[0.5px] border-white/20 transition-transform duration-700 ease-out group-hover:scale-[1.02]">
+<div class="absolute inset-8 border-[0.5px] border-ink-light/10"></div>
+<div class="absolute inset-12 border-[0.5px] border-ink-light/5"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="font-accent-heading text-accent-heading text-ink-dark mb-2 group-hover:text-primary transition-colors duration-300">SK Broadband VOD</h2>
+<p class="font-body-sm text-body-sm text-ink-light leading-relaxed">Television interface design exploring non-linear navigation patterns for extensive media libraries.</p>
+</div>
+</article>
+</div>
+</main>
+<!-- Bottom Footer Area -->
+<footer class="fixed bottom-0 w-full z-40 px-gutter-vw py-8 flex justify-between items-end pointer-events-none">
+<!-- Left: Date Indicator -->
+<div class="font-nav-cn text-nav-cn text-ink-light tracking-wide flex items-center gap-4">
+<span>2024.05</span>
+<span class="text-outline/40">————</span>
+<span>진행 중</span>
+</div>
+<!-- Right: Interaction Hint -->
+<div class="font-label-caps text-label-caps text-ink-light tracking-[0.2em] flex items-center gap-3 bg-surface/80 px-4 py-2 rounded-full backdrop-blur-md border-[0.5px] border-outline/10 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+<span>SCROLL TO NAVIGATE</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</footer>
+<!-- Horizontal Scroll Script for Desktop Mouse Wheel -->
+<script>
+        const scrollContainer = document.querySelector('.gallery-scroll-container');
+        
+        scrollContainer.addEventListener('wheel', (evt) => {
+            // Only convert vertical scroll to horizontal if we're not scrolling a specific internal element vertically
+            if (evt.deltaY !== 0) {
+                evt.preventDefault();
+                scrollContainer.scrollLeft += evt.deltaY * 2; // Multiplier for scroll speed feeling
+            }
+        });
+    </script>
+</body></html>

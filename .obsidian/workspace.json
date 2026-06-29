@@ -1,0 +1,274 @@
+{
+  "main": {
+    "id": "fa03a3e4e545b540",
+    "type": "split",
+    "children": [
+      {
+        "id": "a0564c5a659c3411",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7bf33e63f9c7ad7f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          },
+          {
+            "id": "09ea5b3f8edeb0f5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "raw/Career.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Career"
+            }
+          },
+          {
+            "id": "3a501527e924190f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "raw/디자인 지식.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "디자인 지식"
+            }
+          },
+          {
+            "id": "185e7051d050fcc3",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "그래프 뷰"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e19bdf775b34158c",
+    "type": "split",
+    "children": [
+      {
+        "id": "d6bc794231e7a9e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a3f086a7c610c838",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "19d806f9914cd276",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "e80a096fe90014bc",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9b3c2b04f1e612a3",
+    "type": "split",
+    "children": [
+      {
+        "id": "b89c1999bb022c6b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "69a903b7fc984f06",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "raw/색 선택할 때 참고할 지식.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "색 선택할 때 참고할 지식 의 백링크"
+            }
+          },
+          {
+            "id": "0d56e9eb768f6590",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "raw/색 선택할 때 참고할 지식.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "색 선택할 때 참고할 지식 의 나가는 링크"
+            }
+          },
+          {
+            "id": "2a8d1b0fd8cc0d2a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "9cc527c4792df867",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "cf12db91759e579c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "raw/색 선택할 때 참고할 지식.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "색 선택할 때 참고할 지식 의 개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
+    }
+  },
+  "active": "185e7051d050fcc3",
+  "lastOpenFiles": [
+    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc/README.md",
+    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc/package.json",
+    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc/lightningcss.win32-x64-msvc.node",
+    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc/LICENSE",
+    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc",
+    "Portfolio/web/node_modules/@babel/core/lib/transformation/util/clone-deep.js.map",
+    "Portfolio/web/node_modules/@babel/core/lib/transformation/util/clone-deep.js",
+    "Portfolio/web/node_modules/@babel/core/lib/transformation/util",
+    "Portfolio/web/node_modules/@babel/core/lib/vendor/import-meta-resolve.js.map",
+    "Portfolio/web/node_modules/@babel/core/lib/vendor/import-meta-resolve.js",
+    "Portfolio/web/node_modules/@babel/core/lib/vendor",
+    "Portfolio/web/node_modules/@babel/helper-compilation-targets/README.md",
+    "Portfolio/web/node_modules/@babel/helper-module-imports/README.md",
+    "Portfolio/web/node_modules/@babel/helper-module-transforms/README.md",
+    "Portfolio/web/node_modules/@babel/helper-validator-option/README.md",
+    "Portfolio/web/node_modules/@vitejs/plugin-react/README.md",
+    "Portfolio/web/node_modules/baseline-browser-mapping/README.md",
+    "Portfolio/web/node_modules/convert-source-map/README.md",
+    "Portfolio/web/node_modules/electron-to-chromium/README.md",
+    "Portfolio/web/node_modules/js-tokens/README.md",
+    "Portfolio/web/node_modules/js-tokens/CHANGELOG.md",
+    "Portfolio/web/node_modules/lru-cache/README.md",
+    "Portfolio/web/node_modules/yallist/README.md",
+    "Portfolio/web/node_modules/vite/README.md",
+    "Portfolio/web/node_modules/vite/LICENSE.md",
+    "Portfolio/web/node_modules/update-browserslist-db/README.md",
+    "Portfolio/web/node_modules/tapable/README.md",
+    "Portfolio/web/node_modules/scheduler/README.md",
+    "Portfolio/web/node_modules/ms/readme.md",
+    "Portfolio/web/node_modules/ms/license.md",
+    "Portfolio/web/node_modules/magic-string/README.md",
+    "Portfolio/web/node_modules/lightningcss/README.md",
+    "Portfolio/web/node_modules/fdir/README.md",
+    "Portfolio/web/node_modules/typescript/SECURITY.md",
+    "Portfolio/web/node_modules/typescript/README.md",
+    "Portfolio/web/node_modules/tslib/SECURITY.md",
+    "Pasted image 20260614133306.png",
+    "Pasted image 20260614133225.png",
+    "Pasted image 20260612003152.png",
+    "Pasted image 20260612003139.png",
+    "Pasted image 20260612003131.png",
+    "Pasted image 20260612003121.png",
+    "Pasted image 20260607225541.png",
+    "raw/Project Image/통일과나눔 재단 홈페이지_main.jpg",
+    "raw/Project Image/SK브로드밴드 안전 관리 시스템_상세1.jpg",
+    "raw/Project Image/SK브로드밴드 안전 관리 시스템_메인.jpg"
+  ]
+}

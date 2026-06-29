@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm --prefix \"c:\\\\Users\\\\wangc\\\\Documents\\\\Portfolio\\\\web\" run dev 2>&1)",
+      "Bash(ls \"c:\\\\Users\\\\wangc\\\\Documents\\\\Portfolio\")",
+      "Read(//c/Users/wangc/Documents/Portfolio/**)",
+      "PowerShell(Get-Process | Where-Object { $_.Name -match 'node' } | Select-Object Id, Name, Path)",
+      "PowerShell(Stop-Process -Name node -Force)",
+      "PowerShell(Move-Item -Path \"c:\\\\Users\\\\wangc\\\\Documents\\\\Portfolio\" -Destination \"c:\\\\Users\\\\wangc\\\\Documents\\\\Frontend-Career-Wiki\\\\Portfolio\")",
+      "Bash(npm --prefix \"c:\\\\Users\\\\wangc\\\\Documents\\\\Frontend-Career-Wiki\\\\Portfolio\\\\web\" run dev)",
+      "mcp__stitch__list_projects",
+      "mcp__stitch__list_screens",
+      "mcp__stitch__edit_screens",
+      "WebFetch(domain:lh3.googleusercontent.com)",
+      "mcp__stitch__get_screen",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "WebFetch(domain:contribution.usercontent.google.com)"
+    ]
+  }
+}

@@ -1,0 +1,378 @@
+The code below contains a design. This design should be used to create a new app or be added to an existing one.
+
+Look at the current open project to determine if a project exists. If no project is open, create a new Vite project then create this view in React after componentizing it.
+
+If a project does exist, determine the framework being used and implement the design within that framework. Identify whether reusable components already exist that can be used to implement the design faithfully and if so use them, otherwise create new components. If other views already exist in the project, make sure to place the view in a sensible route and connect it to the other views.
+
+Ensure the visual characteristics, layout, and interactions in the design are preserved with perfect fidelity.
+
+Run the dev command so the user can see the app once finished.
+
+```
+<html lang="en" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">MUSÉE | Digital Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="5">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="6">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet" vid="7">
+    <style vid="8">
+        
+
+        :root {
+            --bg: #EFEEEB;
+            --fg: #121212;
+            --accent: #8C8C8C;
+            --border: #D1D1D1;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+            --gutter: 4vw;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: var(--sans);
+            overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem var(--gutter);
+            border-bottom: 0.5px solid var(--border);
+            z-index: 100;
+            background: var(--bg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a, .nav-brand, .nav-meta {
+            text-decoration: none;
+            color: var(--fg);
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-top: 100px;
+        }
+
+        .gallery-container {
+            display: flex;
+            align-items: center;
+            padding: 0 20vw;
+            min-width: max-content;
+            height: 70vh;
+            gap: 12vw;
+        }
+
+        
+        .artwork {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+
+        .artwork:nth-child(even) {
+            transform: translateY(40px);
+        }
+
+        .artwork:nth-child(odd) {
+            transform: translateY(-40px);
+        }
+
+        .img-wrapper {
+            position: relative;
+            background: #E5E4E1;
+            overflow: hidden;
+        }
+
+        .artwork img {
+            display: block;
+            height: 50vh;
+            width: auto;
+            object-fit: cover;
+            filter: sepia(0.1) contrast(1.05);
+            transition: scale 1s ease;
+        }
+
+        .artwork:hover img {
+            scale: 1.05;
+        }
+
+        .artwork-meta {
+            margin-top: 1.5rem;
+            max-width: 280px;
+        }
+
+        .artwork-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .artwork-title {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        .artwork-details {
+            font-size: 11px;
+            color: var(--fg);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        
+        .timeline-indicator {
+            position: fixed;
+            bottom: 8vh;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .year {
+            font-family: var(--serif);
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--fg);
+        }
+
+        .dash {
+            width: 80px;
+            height: 0.5px;
+            background: var(--fg);
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 3vh;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+        }
+
+        
+        .accession-no {
+            position: absolute;
+            top: -20px;
+            right: -40px;
+            font-size: 9px;
+            transform: rotate(90deg);
+            transform-origin: left bottom;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+        }
+
+        
+        main::-webkit-scrollbar {
+            height: 3px;
+        }
+        main::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        main::-webkit-scrollbar-thumb {
+            background: var(--border);
+        }
+
+        
+        @media (max-width: 768px) {
+            .nav-brand { position: static; transform: none; }
+            .nav-links, .nav-meta { display: none; }
+            .year { font-size: 2.5rem; }
+            .dash { width: 40px; }
+            .artwork img { height: 40vh; }
+        }
+    </style>
+</head>
+<body vid="9">
+
+    <nav vid="10">
+        <div class="nav-links" vid="11">
+            <a href="#" vid="12">Exhibitions</a>
+            <a href="#" vid="13">Artists</a>
+            <a href="#" vid="14">Archive</a>
+        </div>
+        <div class="nav-brand" vid="15">MUSÉE</div>
+        <div class="nav-meta" vid="16">
+            <span vid="17">Paris, FR — 14:02</span>
+        </div>
+    </nav>
+
+    <main id="gallery-scroller" vid="18">
+        <div class="gallery-container" vid="19">
+            
+            
+            <article class="artwork" vid="20">
+                <span class="accession-no" vid="21">INV. 82.1.402</span>
+                <div class="img-wrapper" vid="22">
+                    <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Classical Portrait" vid="23">
+                </div>
+                <div class="artwork-meta" vid="24">
+                    <span class="artwork-label" vid="25">Room 04 / Portraiture</span>
+                    <h2 class="artwork-title" vid="26">The Silent Witness</h2>
+                    <p class="artwork-details" vid="27">Attributed to the Dutch School, c. 1642.<br vid="28">Oil on canvas, 110 x 85 cm.</p>
+                </div>
+            </article>
+
+            
+            <article class="artwork" vid="29">
+                <span class="accession-no" vid="30">INV. 82.1.093</span>
+                <div class="img-wrapper" vid="31">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Detail Painting" vid="32">
+                </div>
+                <div class="artwork-meta" vid="33">
+                    <span class="artwork-label" vid="34">Room 04 / Still Life</span>
+                    <h2 class="artwork-title" vid="35">Vase with Flora</h2>
+                    <p class="artwork-details" vid="36">Jan van Huysum, c. 1720.<br vid="37">Panel, 40 x 32 cm.</p>
+                </div>
+            </article>
+
+            
+            <article class="artwork" vid="38">
+                <span class="accession-no" vid="39">INV. 85.3.112</span>
+                <div class="img-wrapper" vid="40">
+                    <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&amp;fit=crop&amp;q=80&amp;w=900" alt="Grand Interior" vid="41">
+                </div>
+                <div class="artwork-meta" vid="42">
+                    <span class="artwork-label" vid="43">Room 05 / Interiors</span>
+                    <h2 class="artwork-title" vid="44">Study of Light and Shadow</h2>
+                    <p class="artwork-details" vid="45">Master of the Morning Sun, c. 1658.<br vid="46">Oil on oak, 92 x 74 cm.</p>
+                </div>
+            </article>
+
+            
+            <article class="artwork" vid="47">
+                <span class="accession-no" vid="48">INV. 89.2.204</span>
+                <div class="img-wrapper" vid="49">
+                    <img src="https://images.unsplash.com/photo-1576132704106-69c277317e36?auto=format&amp;fit=crop&amp;q=80&amp;w=700" alt="Draped Figure" vid="50">
+                </div>
+                <div class="artwork-meta" vid="51">
+                    <span class="artwork-label" vid="52">Room 05 / Allegory</span>
+                    <h2 class="artwork-title" vid="53">The Velvet Veil</h2>
+                    <p class="artwork-details" vid="54">Anonymous, Venetian School, c. 1690.<br vid="55">Oil on canvas, 140 x 110 cm.</p>
+                </div>
+            </article>
+
+            
+            <article class="artwork" vid="56">
+                <span class="accession-no" vid="57">INV. 91.1.002</span>
+                <div class="img-wrapper" vid="58">
+                    <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Architectural Detail" vid="59">
+                </div>
+                <div class="artwork-meta" vid="60">
+                    <span class="artwork-label" vid="61">Room 06 / Architecture</span>
+                    <h2 class="artwork-title" vid="62">The Arch of Constantine</h2>
+                    <p class="artwork-details" vid="63">Piranesi Circle, c. 1745.<br vid="64">Etching on paper, 45 x 60 cm.</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <div class="timeline-indicator" vid="65">
+        <span class="year" id="year-start" vid="66">1642</span>
+        <div class="dash" vid="67"></div>
+        <span class="year" id="year-end" vid="68">1745</span>
+    </div>
+
+    <div class="scroll-hint" vid="69">Scroll to navigate the collection</div>
+
+    <script vid="70">
+        const scroller = document.getElementById('gallery-scroller');
+        const yearStart = document.getElementById('year-start');
+        const yearEnd = document.getElementById('year-end');
+
+        
+        scroller.addEventListener('scroll', () => {
+            const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+            const scrollFraction = scroller.scrollLeft / maxScroll;
+            
+            
+            const startYearValue = Math.round(1642 + (scrollFraction * 50));
+            const endYearValue = Math.round(1745 + (scrollFraction * 50));
+            
+            yearStart.innerText = startYearValue;
+            yearEnd.innerText = endYearValue;
+
+            
+            const artworks = document.querySelectorAll('.artwork');
+            artworks.forEach((art, index) => {
+                const rect = art.getBoundingClientRect();
+                const centerOffset = (window.innerWidth / 2) - (rect.left + rect.width / 2);
+                const movement = centerOffset * 0.05;
+                const img = art.querySelector('img');
+                if (img) {
+                    img.style.transform = `translateX(${movement}px)`;
+                }
+            });
+        });
+
+        
+        scroller.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            scroller.scrollLeft += evt.deltaY;
+        });
+
+        
+        window.addEventListener('load', () => {
+            scroller.scrollLeft = 0;
+        });
+    </script>
+
+</body></html>
+```
