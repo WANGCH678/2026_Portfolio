@@ -71,8 +71,6 @@ Frontend-Career-Wiki/
 
 ### 3. 건강검진 (Health Check)
 
-**트리거:** 사용자가 "건강검진 해줘" 또는 "wiki 점검해줘"라고 말할 때
-
 **Claude가 할 일:**
 1. `wiki/index.md` 기준으로 전체 페이지 목록을 확인한다
 2. 아래 항목을 점검한다:

@@ -167,7 +167,7 @@ export default function Home() {
     <div style={{ width: '100vw', height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative' }}>
 
       {/* Top margin band */}
-      <div style={{ width: '100%', height: '18vh', flexShrink: 0, zIndex: 10, backdropFilter: 'blur(12px)', background: 'rgba(240,235,229,0.7)' }} />
+      <div style={{ width: '100%', height: '18vh', flexShrink: 0, zIndex: 10, backdropFilter: 'blur(12px)', background: 'rgb(245, 242, 238)' }} />
 
       {/* Middle canvas — fallback gradient + WebGL on top at opacity 0.6 multiply */}
       <div style={{ flexGrow: 1, position: 'relative', overflow: 'hidden', background: 'linear-gradient(135deg, #f0ebe5 0%, #e0eaec 45%, #a0d8ef 100%)' }}>
@@ -178,7 +178,7 @@ export default function Home() {
       </div>
 
       {/* Bottom margin band */}
-      <div style={{ width: '100%', height: '18vh', flexShrink: 0, zIndex: 10, backdropFilter: 'blur(12px)', background: 'rgba(224,234,236,0.6)' }} />
+      <div style={{ width: '100%', height: '18vh', flexShrink: 0, zIndex: 10, backdropFilter: 'blur(12px)', background: 'rgb(245, 242, 238)' }} />
 
       {/* Content layer — absolute over everything */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 20 }}>

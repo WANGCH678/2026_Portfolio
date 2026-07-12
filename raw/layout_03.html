@@ -1,0 +1,323 @@
+<html lang="en" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">The Silent Witness | MUSÉE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="5">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="6">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet" vid="7">
+    <style vid="8">
+        :root {
+            --bg: #EFEEEB;
+            --fg: #121212;
+            --accent: #8C8C8C;
+            --border: #D1D1D1;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+            --gutter: 4vw;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: var(--sans);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem var(--gutter);
+            border-bottom: 0.5px solid var(--border);
+            z-index: 100;
+            background: var(--bg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a, .nav-brand, .nav-meta {
+            text-decoration: none;
+            color: var(--fg);
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .close-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-btn:hover {
+            opacity: 0.6;
+        }
+
+        .close-icon {
+            width: 12px;
+            height: 12px;
+            position: relative;
+        }
+
+        .close-icon::before, .close-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: var(--fg);
+            top: 50%;
+        }
+
+        .close-icon::before { transform: rotate(45deg); }
+        .close-icon::after { transform: rotate(-45deg); }
+
+        main {
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            padding-top: 73px;
+        }
+
+        .artwork-hero {
+            position: relative;
+            height: calc(100vh - 73px);
+            overflow: hidden;
+            background: #E5E4E1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4vw;
+        }
+
+        .artwork-hero img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+            filter: sepia(0.05) contrast(1.02);
+        }
+
+        .artwork-sidebar {
+            height: calc(100vh - 73px);
+            overflow-y: auto;
+            border-left: 0.5px solid var(--border);
+            padding: 4vw 3vw;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .sidebar-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .sidebar-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            border-bottom: 0.5px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .artwork-title-large {
+            font-family: var(--serif);
+            font-size: 2.75rem;
+            font-style: italic;
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        .artwork-attribution {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--fg);
+        }
+
+        .provenance-text {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: var(--fg);
+            opacity: 0.9;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .data-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .data-key {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+        }
+
+            font-size: 11px;
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 3rem;
+        }
+
+        .acquisition-note {
+            font-size: 10px;
+            font-style: italic;
+            color: var(--accent);
+            line-height: 1.5;
+        }
+
+        
+        .artwork-sidebar::-webkit-scrollbar {
+            width: 3px;
+        }
+        .artwork-sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .artwork-sidebar::-webkit-scrollbar-thumb {
+            background: var(--border);
+        }
+
+        @media (max-width: 1100px) {
+            main {
+                grid-template-columns: 1fr;
+                overflow-y: auto;
+            }
+            .artwork-hero {
+                height: 70vh;
+            }
+            .artwork-sidebar {
+                height: auto;
+                border-left: none;
+                border-top: 0.5px solid var(--border);
+            }
+        }
+    </style>
+</head>
+<body vid="9">
+
+    <nav vid="10">
+        <div class="nav-links" vid="11">
+            <div class="close-btn" vid="12">
+                <div class="close-icon" vid="13"></div>
+                <span vid="14">Return to Collection</span>
+            </div>
+        </div>
+        <div class="nav-brand" vid="15">MUSÉE</div>
+        <div class="nav-meta" vid="16">
+            <span vid="17">Paris, FR — 14:05</span>
+        </div>
+    </nav>
+
+    <main vid="18">
+        <section class="artwork-hero" vid="19">
+            <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?auto=format&amp;fit=crop&amp;q=90&amp;w=1400" alt="The Silent Witness" vid="20">
+        </section>
+
+        <aside class="artwork-sidebar" vid="21">
+            <div class="sidebar-section" vid="22">
+                <span class="sidebar-label" vid="23">Identity</span>
+                <h1 class="artwork-title-large" vid="24">The Silent Witness</h1>
+                <p class="artwork-attribution" vid="25">
+                    Attributed to the Dutch School<br vid="26">
+                    Active in Haarlem, c. 1640–1660
+                </p>
+            </div>
+
+            <div class="sidebar-section" vid="27">
+                <span class="sidebar-label" vid="28">Details &amp; Dimensions</span>
+                <div class="data-grid" vid="29">
+                    <div class="data-item" vid="30">
+                        <span class="data-key" vid="31">Medium</span>
+                        <span class="data-value" vid="32">Oil on canvas</span>
+                    </div>
+                    <div class="data-item" vid="33">
+                        <span class="data-key" vid="34">Dimensions</span>
+                        <span class="data-value" vid="35">110.5 × 85.2 cm</span>
+                    </div>
+                    <div class="data-item" vid="36">
+                        <span class="data-key" vid="37">Date</span>
+                        <span class="data-value" vid="38">c. 1642</span>
+                    </div>
+                    <div class="data-item" vid="39">
+                        <span class="data-key" vid="40">Location</span>
+                        <span class="data-value" vid="41">Room 04, North Wall</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section" vid="42">
+                <span class="sidebar-label" vid="43">Provenance</span>
+                <p class="provenance-text" vid="44">
+                    Formerly in the collection of the Count de Vaudreuil, Paris; his sale, December 1784. Acquired by the Marquis de Montesquiou-Fezensac. By descent through the family until 1922. Private collection, Amsterdam.
+                </p>
+            </div>
+
+            <div class="sidebar-section" vid="45">
+                <span class="sidebar-label" vid="46">Scholarly Note</span>
+                <p class="provenance-text" vid="47">
+                    The work demonstrates the characteristic chiaroscuro of the mid-17th century Dutch tradition, with a particular focus on the psychological depth of the sitter, whose identity remains a subject of academic debate. Recent restoration has revealed the original luminosity of the background landscape.
+                </p>
+            </div>
+
+            <div class="sidebar-footer" vid="48">
+                <div class="data-item" style="margin-bottom: 1rem;" vid="49">
+                    <span class="data-key" vid="50">Accession Number</span>
+                    <span class="data-value" vid="51">INV. 82.1.402</span>
+                </div>
+                <p class="acquisition-note" vid="52">
+                    Gift of the Friends of the Musée, 1982. Photographed by Jean-Luc M.
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <script vid="53">
+        document.querySelector('.close-btn').addEventListener('click', () => {
+            
+            window.history.back();
+        });
+    </script>
+
+</body></html>
