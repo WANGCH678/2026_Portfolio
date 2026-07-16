@@ -25,7 +25,7 @@ GS칼텍스 여수 정유공장의 **Heater·FlareStack 설비 실시간 모니�
 
 ### Dashboard (메인 — 다크 테마)
 
-![대시보드 메인](../raw/Image/GS칼텍스 여수공장 통합 대시보드_메인.jpg)
+![대시보드 메인](../raw/Project Image/GS칼텍스 여수공장 통합 대시보드_메인.jpg)
 
 - **좌측 사이드바:** 공정 구조 트리 (Refinery → CDU → No.1~4 CDU / KD-HDS / Chemical / HOU / VRHCR)
 - **상단 탭 네비게이션:** Dashboard + CDU별 멀티탭 (No.1 CDU × 6개)
@@ -38,7 +38,7 @@ GS칼텍스 여수 정유공장의 **Heater·FlareStack 설비 실시간 모니�
 
 ### CDU 상세 모니터링
 
-![상세 화면](../raw/Image/GS칼텍스 여수공장 통합 대시보드_상세1.jpg)
+![상세 화면](../raw/Project Image/GS칼텍스 여수공장 통합 대시보드_상세1.jpg)
 
 - **No.3 CDU Monitoring** 상세 페이지
 - Excess O2(vol%) 게이지: Low/High 범위 + Current/Target 표시

@@ -32,23 +32,32 @@
 
 ---
 
-## 기술 & 노하우 (Skills)
+## 이직 회사 (Companies)
 
-*아직 추가된 페이지가 없습니다. raw/에 기술 자료를 넣어주세요.*
+| 페이지 | 포지션 | 기술 스택 | 마감 |
+|--------|--------|-----------|------|
+| [[company-edencrew]] | 이든크루 — Lucy Studio Front 개발자 | Lucy Studio (Figma→JSON+JS) | 2026.11.19 |
+| [[company-miridih]] | 미리디 — 미리캔버스 FE 개발자 | React, CSS | 2026.06.19 |
+| [[company-sagak]] | 사각 — 소프트웨어 엔지니어(FE) | TypeScript, Svelte | 상시채용 |
+| [[company-wishist]] | 위시스트 — 프론트엔드 개발자 | TypeScript, React | 상시채용 |
+| [[company-archisketch]] | 아키스케치 — 3D Frontend Engineer | TypeScript, React, Three.js/WebGL | 상시채용 |
+
+---
+
+## 기술 & 노하우 (Skills)
 
 | 페이지 | 설명 |
 |--------|------|
-| — | — |
+| [[skill-color-theory]] | 색채학(색상·명도·채도·톤) + CRAP 디자인 4대 원칙 |
 
 ---
 
 ## 포트폴리오 (Portfolio)
 
-*아직 추가된 페이지가 없습니다.*
-
 | 페이지 | 설명 |
 |--------|------|
-| — | — |
+| [[portfolio-design-mood]] | Blue Cider 디자인 무드 — 컬러 토큰·그라데이션·타이포·컴포넌트 스펙 |
+| [[portfolio-layout-reference]] | layout_01~03.html 구조 레퍼런스 — 메인/리스트/상세 페이지 매핑 |
 
 ---
 
@@ -70,5 +79,5 @@
 
 ---
 
-*마지막 업데이트: 2026-06-07*
-*총 wiki 페이지 수: 8 (index, log, career×1, project×6)*
+*마지막 업데이트: 2026-07-16*
+*총 wiki 페이지 수: 16 (index, log, career×1, project×6, company×5, skill×1, portfolio×2)*

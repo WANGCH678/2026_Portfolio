@@ -1,128 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import logoHanwha from '../assets/logos/hanwha.png'
-import logoToinanum from '../assets/logos/toinanum.png'
-import logoGsCaltex from '../assets/logos/gs-caltex.png'
-import logoKtng from '../assets/logos/ktng.png'
-import logoSkBroadband from '../assets/logos/sk-broadband.png'
-import imgHanwha from '../assets/projects/hanwha-crm.jpg'
-import imgToinanum from '../assets/projects/toinanum.jpg'
-import imgGsDashboard from '../assets/projects/gs-dashboard.jpg'
-import imgKtgSales from '../assets/projects/ktg-sales.jpg'
-import imgGsFuel from '../assets/projects/gs-fuel.jpg'
-import imgSkSafety from '../assets/projects/sk-safety.jpg'
-
-/* ── 프로젝트 데이터 (Stitch CompanyProject_Sample_01.html 기준) ── */
-const PROJECTS = [
-  {
-    id:       'hanwha-crm',
-    accession: 'ARC.001',
-    nameKr:   '한화 파워시스템 CRM',
-    nameEn:   'Hanwha CRM Redesign',
-    client:   '한화 파워시스템',
-    period:   '2024.05 — 2024.08',
-    tech:     'OutSystems',
-    desc:     '해외 영업 안건 생애주기 관리 CRM. 수주목표 vs 실적 차트, 복합 피벗 테이블.',
-    gradient: 'linear-gradient(135deg, #f0ebe5, #d4c9bc, #9cb2af)',
-    mesh:     'radial-gradient(circle at 30% 30%, #f5dccf 0%, #e8b49a 100%)',
-    brandWord: 'HANWHA',
-    width: '35vw', minWidth: '400px', maxWidth: '600px',
-    aspect:   '4/5',
-    offset:   'up',
-    logo:     logoHanwha,
-    image:    imgHanwha,
-  },
-  {
-    id:       'toinanum',
-    accession: 'ARC.002',
-    nameKr:   '통일과나눔 재단 홈페이지',
-    nameEn:   'Toi & Nanum Foundation',
-    client:   '통일과나눔 재단',
-    period:   '2024.09 — 2024.12',
-    tech:     'OutSystems',
-    desc:     '153,800명 후원자 재단 공식 홈페이지. Hero 슬라이더, 세계지도, 통계 시각화.',
-    gradient: 'linear-gradient(135deg, #f5f2ee, #e0d8ce, #c4bab0)',
-    mesh:     'radial-gradient(circle at 70% 30%, #c8c2d3 0%, #a69ab8 100%)',
-    brandWord: 'TONGIL NANUM FOUNDATION',
-    width: '30vw', minWidth: '350px', maxWidth: '500px',
-    aspect:   '3/4',
-    offset:   'down',
-    logo:     logoToinanum,
-    image:    imgToinanum,
-  },
-  {
-    id:       'gs-dashboard',
-    accession: 'ARC.003',
-    nameKr:   'GS칼텍스 여수공장 통합 대시보드',
-    nameEn:   'GS Caltex Dashboard',
-    client:   'GS칼텍스',
-    period:   '2025.04 — 2025.06',
-    tech:     'OutSystems',
-    desc:     '정유공장 설비 실시간 모니터링. 다크 테마, CDU 카드 그리드, 멀티탭 구조.',
-    gradient: 'linear-gradient(135deg, #e8ddd4, #c9b8a8, #9cb2af)',
-    mesh:     'radial-gradient(circle at 30% 70%, #bccdcb 0%, #9ab8b6 100%)',
-    brandWord: 'GS CALTEX',
-    width: '35vw', minWidth: '400px', maxWidth: '600px',
-    aspect:   '16/9',
-    offset:   'up',
-    logo:     logoGsCaltex,
-    image:    imgGsDashboard,
-  },
-  {
-    id:       'ktg-sales',
-    accession: 'ARC.004',
-    nameKr:   'KT&G 영업 관리 시스템',
-    nameEn:   'KT&G Sales Manager',
-    client:   'KT&G',
-    period:   '2025.03 — 2025.05',
-    tech:     'OutSystems',
-    desc:     '영업사원 일일 판매점 방문 경로 관리 모바일 앱. 드래그 경로 재정렬 UX.',
-    gradient: 'linear-gradient(135deg, #f0ebe5, #a0d8ef)',
-    mesh:     'radial-gradient(circle at 50% 50%, #c5cec8 0%, #a8b8ad 100%)',
-    brandWord: 'KT&G',
-    width: '28vw', minWidth: '320px', maxWidth: '450px',
-    aspect:   '4/5',
-    offset:   'down',
-    logo:     logoKtng,
-    image:    imgKtgSales,
-  },
-  {
-    id:       'gs-fuel',
-    accession: 'ARC.005',
-    nameKr:   'GS칼텍스 유가 관리 시스템',
-    nameEn:   'GS Caltex Dynamic Pricing',
-    client:   'GS칼텍스',
-    period:   '2025.10 — 2026.01',
-    tech:     'Vue',
-    desc:     '전국 주유소 Mogas·Diesel 가격 실시간 모니터링. 시계열 차트, 프라이싱 시뮬레이션.',
-    gradient: 'linear-gradient(135deg, #e8e4de, #bdc8c5)',
-    mesh:     'radial-gradient(circle at 70% 70%, #e3d9c5 0%, #d4c4a8 100%)',
-    brandWord: 'GS CALTEX',
-    width: '32vw', minWidth: '380px', maxWidth: '550px',
-    aspect:   '16/10',
-    offset:   'up',
-    logo:     logoGsCaltex,
-    image:    imgGsFuel,
-  },
-  {
-    id:       'sk-safety',
-    accession: 'ARC.006',
-    nameKr:   'SK브로드밴드 안전 관리 시스템',
-    nameEn:   'SK Broadband Safe-B',
-    client:   'SK브로드밴드',
-    period:   '2026.02 — 진행 중',
-    tech:     'OutSystems',
-    desc:     '건설·통신 현장 통합 안전 관제. AI CCTV·IoT 센서·지도 API 연동 대시보드.',
-    gradient: 'linear-gradient(135deg, #f0ebe5, #d4e8f0, #a0d8ef)',
-    mesh:     'radial-gradient(circle at 50% 20%, #d3c2c2 0%, #b89a9a 100%)',
-    brandWord: 'SK BROADBAND',
-    width: '30vw', minWidth: '350px', maxWidth: '500px',
-    aspect:   '1/1',
-    offset:   'down',
-    logo:     logoSkBroadband,
-    image:    imgSkSafety,
-  },
-]
+import { projects as PROJECTS } from '../data/projects'
 
 export default function Projects() {
   const scrollerRef = useRef<HTMLDivElement>(null)
@@ -204,8 +82,9 @@ export default function Projects() {
 
           {/* Project cards */}
           {PROJECTS.map((p) => (
-            <article
+            <Link
               key={p.id}
+              to={`/projects/${p.id}`}
               className="proj-card"
               style={{
                 flexShrink: 0,
@@ -213,6 +92,7 @@ export default function Projects() {
                 width: p.width, minWidth: p.minWidth, maxWidth: p.maxWidth,
                 transform: p.offset === 'up' ? 'translateY(-40px)' : 'translateY(40px)',
                 cursor: 'pointer',
+                textDecoration: 'none', color: 'inherit', display: 'block',
               }}
             >
               {/* Accession row */}
@@ -227,47 +107,20 @@ export default function Projects() {
                 style={{
                   width: '100%',
                   height: 'clamp(200px, 38vh, 420px)',
-                  background: p.mesh, borderRadius: '0.25rem',
+                  background: p.tint, borderRadius: '0.25rem',
                   position: 'relative', overflow: 'hidden', marginBottom: '2rem',
                   boxShadow: '0 20px 40px rgba(0,0,0,0.03)',
                   border: '0.5px solid rgba(255,255,255,0.2)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  padding: '3rem', boxSizing: 'border-box',
                 }}
               >
-                {/* Grain texture — same fractal-noise technique as the page-level overlay */}
-                <div aria-hidden="true" style={{
-                  position: 'absolute', inset: 0, opacity: 0.08, pointerEvents: 'none',
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-                }} />
-
-                {/* Large brand-word — the editorial typographic anchor for the artwork */}
-                <span className="proj-brandword" style={{
-                  fontFamily: "'Cormorant Garamond', serif", fontWeight: 300,
-                  letterSpacing: '0.1em', textTransform: 'uppercase',
-                  fontSize: 'clamp(1.6rem, 5vw, 2.75rem)',
-                  color: 'rgba(255,255,255,0.85)',
-                  textShadow: '0 2px 24px rgba(0,0,0,0.08)',
-                  zIndex: 2, transition: 'transform 0.7s ease',
-                  textAlign: 'center', lineHeight: 1.1,
-                }}>
-                  {p.brandWord}
-                </span>
-
-                <div className="proj-brandmark" style={{
-                  position: 'absolute', top: '1rem', left: '0.5rem', zIndex: 10,
-                  padding: '0.25rem 0.75rem',
-                  background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(24px)',
-                  borderRadius: '999px',
-                  border: '0.5px solid rgba(111,121,124,0.2)',
-                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
-                  display: 'inline-flex', alignItems: 'center', gap: '0.25rem',
-                }}>
-                  <img
-                    src={p.logo}
-                    alt={`${p.client} 로고`}
-                    style={{ height: '14px', width: 'auto', maxWidth: '110px', objectFit: 'contain', display: 'block' }}
-                  />
-                </div>
+                <img
+                  src={p.logo}
+                  alt={`${p.client} 로고`}
+                  className="proj-logo-bg"
+                  style={{ maxWidth: '55%', maxHeight: '55%', width: 'auto', height: 'auto', objectFit: 'contain', transition: 'transform 0.7s ease' }}
+                />
               </div>
 
               {/* Card text */}
@@ -279,7 +132,7 @@ export default function Projects() {
                   {p.desc}
                 </p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
@@ -338,7 +191,7 @@ export default function Projects() {
         /* Card hover */
         .proj-thumb { transition: transform 0.7s ease; }
         .proj-card:hover .proj-thumb { transform: scale(1.03); }
-        .proj-card:hover .proj-brandword { transform: scale(1.05); }
+        .proj-card:hover .proj-logo-bg { transform: scale(1.05); }
         .proj-card:hover .proj-title { color: #11677a !important; }
       `}</style>
     </div>

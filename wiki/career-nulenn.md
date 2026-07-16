@@ -65,5 +65,5 @@
 
 ---
 
-*관련 페이지: [[project-sk-safety]], [[project-gs-dashboard]], [[project-gs-fuel]], [[project-ktg-sales]], [[project-hanwha-crm]], [[project-toinanum]]*
-*최종 수정: 2026-06-07*
+*관련 페이지: [[project-sk-safety]], [[project-gs-dashboard]], [[project-gs-fuel]], [[project-ktg-sales]], [[project-hanwha-crm]], [[project-toinanum]], [[company-edencrew]], [[company-miridih]], [[company-sagak]], [[company-wishist]], [[company-archisketch]]*
+*최종 수정: 2026-07-16*

@@ -1,20 +1,20 @@
 {
   "main": {
-    "id": "fa03a3e4e545b540",
+    "id": "5b846a8866c95bba",
     "type": "split",
     "children": [
       {
-        "id": "52e834bd0e8940d5",
+        "id": "56f94d9e5eef8e89",
         "type": "tabs",
         "children": [
           {
-            "id": "7824043fd07757aa",
+            "id": "bc7475ac49289eeb",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "새 탭"
+              "icon": "lucide-git-fork",
+              "title": "그래프 뷰"
             }
           }
         ]
@@ -23,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "e19bdf775b34158c",
+    "id": "2ebc1812da41da36",
     "type": "split",
     "children": [
       {
-        "id": "d6bc794231e7a9e9",
+        "id": "ed9afb689ed8409d",
         "type": "tabs",
         "children": [
           {
-            "id": "a3f086a7c610c838",
+            "id": "f6ddf631872abcef",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +44,7 @@
             }
           },
           {
-            "id": "19d806f9914cd276",
+            "id": "535fd36691b5c898",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +61,7 @@
             }
           },
           {
-            "id": "e80a096fe90014bc",
+            "id": "4e3bee98a71200b1",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -77,20 +77,19 @@
     "width": 300
   },
   "right": {
-    "id": "9b3c2b04f1e612a3",
+    "id": "3e59f0b4ffbd4d6a",
     "type": "split",
     "children": [
       {
-        "id": "b89c1999bb022c6b",
+        "id": "06abe16b206b856b",
         "type": "tabs",
         "children": [
           {
-            "id": "69a903b7fc984f06",
+            "id": "8df13aa6126fb68f",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "raw/색 선택할 때 참고할 지식.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,25 +99,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "색 선택할 때 참고할 지식 의 백링크"
+              "title": "백링크"
             }
           },
           {
-            "id": "0d56e9eb768f6590",
+            "id": "c60aba8861e5a4f6",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "raw/색 선택할 때 참고할 지식.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "색 선택할 때 참고할 지식 의 나가는 링크"
+              "title": "나가는 링크"
             }
           },
           {
-            "id": "2a8d1b0fd8cc0d2a",
+            "id": "adffbb125b44ab19",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -133,7 +131,7 @@
             }
           },
           {
-            "id": "9cc527c4792df867",
+            "id": "3be32178738976f9",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -147,18 +145,17 @@
             }
           },
           {
-            "id": "cf12db91759e579c",
+            "id": "c762a246fd0ff489",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "raw/색 선택할 때 참고할 지식.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "색 선택할 때 참고할 지식 의 개요"
+              "title": "개요"
             }
           }
         ]
@@ -179,53 +176,6 @@
       "bases:새 베이스 생성하기": false
     }
   },
-  "active": "7824043fd07757aa",
-  "lastOpenFiles": [
-    "wiki/index.md",
-    "wiki/company-edencrew.md",
-    "raw/Career.md",
-    "wiki/career-nulenn.md",
-    "Pasted image 20260612003139.png",
-    "Portfolio/web/node_modules/ms/license.md",
-    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc/README.md",
-    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc/package.json",
-    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc/lightningcss.win32-x64-msvc.node",
-    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc/LICENSE",
-    "Portfolio/web/node_modules/lightningcss-win32-x64-msvc",
-    "Portfolio/web/node_modules/@babel/core/lib/transformation/util/clone-deep.js.map",
-    "Portfolio/web/node_modules/@babel/core/lib/transformation/util/clone-deep.js",
-    "Portfolio/web/node_modules/@babel/core/lib/transformation/util",
-    "Portfolio/web/node_modules/@babel/core/lib/vendor/import-meta-resolve.js.map",
-    "Portfolio/web/node_modules/@babel/core/lib/vendor/import-meta-resolve.js",
-    "Portfolio/web/node_modules/@babel/core/lib/vendor",
-    "Portfolio/web/node_modules/@babel/helper-compilation-targets/README.md",
-    "Portfolio/web/node_modules/@babel/helper-module-imports/README.md",
-    "Portfolio/web/node_modules/@babel/helper-module-transforms/README.md",
-    "Portfolio/web/node_modules/@babel/helper-validator-option/README.md",
-    "Portfolio/web/node_modules/@vitejs/plugin-react/README.md",
-    "Portfolio/web/node_modules/baseline-browser-mapping/README.md",
-    "Portfolio/web/node_modules/convert-source-map/README.md",
-    "Portfolio/web/node_modules/electron-to-chromium/README.md",
-    "Portfolio/web/node_modules/js-tokens/README.md",
-    "Portfolio/web/node_modules/js-tokens/CHANGELOG.md",
-    "Portfolio/web/node_modules/lru-cache/README.md",
-    "Portfolio/web/node_modules/yallist/README.md",
-    "Portfolio/web/node_modules/vite/README.md",
-    "Portfolio/web/node_modules/vite/LICENSE.md",
-    "Portfolio/web/node_modules/update-browserslist-db/README.md",
-    "Portfolio/web/node_modules/tapable/README.md",
-    "Portfolio/web/node_modules/scheduler/README.md",
-    "Portfolio/web/node_modules/ms/readme.md",
-    "Portfolio/web/node_modules/magic-string/README.md",
-    "Portfolio/web/node_modules/lightningcss/README.md",
-    "Pasted image 20260614133306.png",
-    "Pasted image 20260614133225.png",
-    "Pasted image 20260612003152.png",
-    "Pasted image 20260612003131.png",
-    "Pasted image 20260612003121.png",
-    "Pasted image 20260607225541.png",
-    "raw/Project Image/통일과나눔 재단 홈페이지_main.jpg",
-    "raw/Project Image/SK브로드밴드 안전 관리 시스템_상세1.jpg",
-    "raw/Project Image/SK브로드밴드 안전 관리 시스템_메인.jpg"
-  ]
+  "active": "bc7475ac49289eeb",
+  "lastOpenFiles": []
 }

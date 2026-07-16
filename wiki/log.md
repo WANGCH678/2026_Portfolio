@@ -6,6 +6,27 @@
 
 ---
 
+## 2026-07-16
+
+### 위키 건강검진 + 문제 해결
+
+- **건강검진 발견 사항:**
+  1. 프로젝트 위키 6개 페이지의 이미지 링크가 전부 깨져 있었음 (`../raw/Image/` 참조 → 실제 폴더명은 `raw/Project Image/`)
+  2. `raw/회사 리스트.md`(채용공고 5건)가 위키화되지 않아 "이직 회사" 섹션이 비어 있었음
+  3. `raw/디자인 가이드.md`, `raw/디자인 규칙.md`, `raw/레이아웃 가이드.md`, `raw/layout_01~03.html`이 위키화되지 않아 "기술/노하우"·"포트폴리오" 섹션이 비어 있었음
+  - 끊어진 [[위키링크]], callout takeaway 누락, 포지셔닝 불일치는 없었음
+
+- **조치:**
+  - `project-gs-dashboard.md`, `project-gs-fuel.md`, `project-hanwha-crm.md`, `project-ktg-sales.md`, `project-sk-safety.md`, `project-toinanum.md`의 이미지 경로 일괄 수정
+  - `raw/회사 리스트.md` → `wiki/company-edencrew.md`, `company-miridih.md`, `company-sagak.md`, `company-wishist.md`, `company-archisketch.md` 5개 페이지 생성 (각 회사 자격요건 대비 [[career-nulenn]] 매칭 분석 포함)
+  - `raw/디자인 규칙.md`(색채학+CRAP 원칙) → `wiki/skill-color-theory.md` 생성
+  - `raw/디자인 가이드.md`(Blue Cider 무드) → `wiki/portfolio-design-mood.md` 생성
+  - `raw/레이아웃 가이드.md` + `layout_01~03.html` 구조 → `wiki/portfolio-layout-reference.md` 생성
+  - `wiki/index.md` 전체 목차 갱신 (이직 회사·기술노하우·포트폴리오 섹션 채움, 총 16페이지)
+  - `wiki/career-nulenn.md` 교차참조에 5개 company 페이지 추가
+
+---
+
 ## 2026-06-07
 
 ### 경력 + 프로젝트 위키 일괄 생성
