@@ -39,23 +39,27 @@ export default function ProjectDetail() {
 
   const [activeImage, setActiveImage] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
+  // As-Is/To-Be 비교 슬라이드에서 특정 패널을 확대할 때만 사용 — 설정되면 시퀀스 탐색과 무관한 단독 확대 뷰가 된다
+  const [lightboxOverride, setLightboxOverride] = useState<{ src: string; label: string } | null>(null)
 
   // 다른 프로젝트로 이동하면 슬라이드/라이트박스 상태를 초기화한다
   useEffect(() => {
     setActiveImage(0)
     setLightboxOpen(false)
+    setLightboxOverride(null)
   }, [id])
 
   useEffect(() => {
     if (!lightboxOpen) return
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setLightboxOpen(false)
+      if (e.key === 'Escape') { setLightboxOpen(false); setLightboxOverride(null) }
+      else if (lightboxOverride) return // 단독 확대 뷰에서는 시퀀스 이동 없음
       else if (e.key === 'ArrowLeft') setActiveImage((i) => (i - 1 + images.length) % images.length)
       else if (e.key === 'ArrowRight') setActiveImage((i) => (i + 1) % images.length)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [lightboxOpen, images.length])
+  }, [lightboxOpen, lightboxOverride, images.length])
 
   if (!project) {
     return (
@@ -73,6 +77,11 @@ export default function ProjectDetail() {
 
   const goPrevImage = () => setActiveImage((i) => (i - 1 + images.length) % images.length)
   const goNextImage = () => setActiveImage((i) => (i + 1) % images.length)
+
+  const current = images[activeImage]
+  const closeLightbox = () => { setLightboxOpen(false); setLightboxOverride(null) }
+  const openLightboxWith = (img: { src: string; label: string }) => { setLightboxOverride(img); setLightboxOpen(true) }
+  const lightboxImg = lightboxOverride ?? current
 
   return (
     <div className="detail-root" style={{ width: '100vw', height: '100vh', overflow: 'hidden', background: '#F5F2EE', fontFamily: 'Noto Serif KR, serif', position: 'relative' }}>
@@ -122,16 +131,32 @@ export default function ProjectDetail() {
           background: '#E5E4E1', display: 'flex', alignItems: 'center', justifyContent: 'center',
           padding: '4vw',
         }}>
-          <img
-            src={images[activeImage]}
-            alt={`${project.nameKr} 화면 ${activeImage + 1}`}
-            onClick={() => setLightboxOpen(true)}
-            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', boxShadow: '0 40px 100px rgba(0,0,0,0.12)', borderRadius: '2px', cursor: 'zoom-in' }}
-          />
+          {current.compare ? (
+            <div className="hero-compare">
+              <div className="hero-compare-panel" onClick={() => openLightboxWith(current)}>
+                <span className="hero-compare-label">{current.label}</span>
+                <img src={current.src} alt={`${project.nameKr} — ${current.label}`} />
+              </div>
+              <span className="hero-compare-arrow" aria-hidden="true">→</span>
+              <div className="hero-compare-panel" onClick={() => openLightboxWith(current.compare!)}>
+                <span className="hero-compare-label">{current.compare.label}</span>
+                <img src={current.compare.src} alt={`${project.nameKr} — ${current.compare.label}`} />
+              </div>
+            </div>
+          ) : (
+            <img
+              src={current.src}
+              alt={`${project.nameKr} — ${current.label}`}
+              onClick={() => setLightboxOpen(true)}
+              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', boxShadow: '0 40px 100px rgba(0,0,0,0.12)', borderRadius: '2px', cursor: 'zoom-in' }}
+            />
+          )}
 
           <span className="hero-zoom-hint">
             <span aria-hidden="true">⤢</span> 클릭하여 확대
           </span>
+
+          {!current.compare && <span className="hero-caption">{current.label}</span>}
 
           {hasMultiple && (
             <>
@@ -139,13 +164,13 @@ export default function ProjectDetail() {
               <button type="button" className="hero-arrow hero-arrow-next" onClick={goNextImage} aria-label="다음 화면"><ChevronIcon direction="right" /></button>
 
               <div className="hero-dots">
-                {images.map((_, i) => (
+                {images.map((img, i) => (
                   <button
                     key={i}
                     type="button"
                     className={`hero-dot${i === activeImage ? ' active' : ''}`}
                     onClick={() => setActiveImage(i)}
-                    aria-label={`${i + 1}번 화면 보기`}
+                    aria-label={img.label}
                   />
                 ))}
               </div>
@@ -200,35 +225,32 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Problem */}
+          {/* Key Skills */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#9cb2af', borderBottom: '0.5px solid rgba(111,121,124,0.2)', paddingBottom: '0.75rem' }}>Problem</span>
-            <p style={{ fontFamily: 'Noto Serif KR, serif', fontSize: '15px', fontWeight: 500, lineHeight: 1.7, color: '#2a2927' }}>
-              {project.problem}
-            </p>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#9cb2af', borderBottom: '0.5px solid rgba(111,121,124,0.2)', paddingBottom: '0.75rem' }}>Key Skills</span>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              {project.skills.map((skill) => (
+                <span key={skill} style={{
+                  fontFamily: 'Inter, sans-serif', fontSize: '11.5px', fontWeight: 500,
+                  letterSpacing: '0.01em', color: '#11677a', lineHeight: 1.4,
+                  background: 'rgba(160,216,239,0.22)', border: '0.5px solid rgba(101,172,193,0.4)',
+                  borderRadius: '999px', padding: '0.45rem 0.9rem',
+                }}>
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {/* Solution */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#9cb2af', borderBottom: '0.5px solid rgba(111,121,124,0.2)', paddingBottom: '0.75rem' }}>Solution</span>
-            <p style={{ fontFamily: 'Noto Serif KR, serif', fontSize: '14px', lineHeight: 1.75, color: '#5a5855' }}>
-              {project.solution}
-            </p>
-          </div>
-
-          {/* Result */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#9cb2af', borderBottom: '0.5px solid rgba(111,121,124,0.2)', paddingBottom: '0.75rem' }}>Result</span>
-            <p style={{ fontFamily: 'Noto Serif KR, serif', fontSize: '14px', lineHeight: 1.75, color: '#5a5855' }}>
-              {project.result}
-            </p>
-          </div>
-
-          {/* Takeaway */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#9cb2af', borderBottom: '0.5px solid rgba(111,121,124,0.2)', paddingBottom: '0.75rem' }}>Takeaway</span>
-            <p style={{ fontFamily: 'Noto Serif KR, serif', fontSize: '15px', fontWeight: 500, lineHeight: 1.7, color: '#2a2927' }}>
-              {project.learning}
+          {/* Impact */}
+          <div style={{
+            position: 'relative', padding: '1.5rem 1.75rem',
+            background: 'rgba(240,235,229,0.55)', borderRadius: '2px',
+            borderLeft: '3px solid #65acc1',
+          }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#9cb2af' }}>Impact</span>
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontSize: '1.2rem', fontWeight: 500, lineHeight: 1.5, color: '#2a2927', marginTop: '0.6rem' }}>
+              {project.impact}
             </p>
           </div>
 
@@ -258,22 +280,25 @@ export default function ProjectDetail() {
           "fixed"가 실제로는 스크롤되는 .lightbox 박스 기준으로 계산되어 버린다. */}
       {lightboxOpen && (
         <>
-          <div className="lightbox" onClick={() => setLightboxOpen(false)}>
+          <div className="lightbox" onClick={closeLightbox}>
             <img
-              src={images[activeImage]}
-              alt={`${project.nameKr} 확대 이미지 ${activeImage + 1}`}
+              src={lightboxImg.src}
+              alt={`${project.nameKr} — ${lightboxImg.label}`}
               className="lightbox-img"
             />
           </div>
 
-          <button type="button" className="lightbox-close" onClick={() => setLightboxOpen(false)} aria-label="닫기">×</button>
+          <button type="button" className="lightbox-close" onClick={closeLightbox} aria-label="닫기">×</button>
 
-          {hasMultiple && (
+          {hasMultiple && !lightboxOverride && (
             <>
               <button type="button" className="lightbox-arrow lightbox-arrow-prev" onClick={goPrevImage} aria-label="이전 화면"><ChevronIcon direction="left" /></button>
               <button type="button" className="lightbox-arrow lightbox-arrow-next" onClick={goNextImage} aria-label="다음 화면"><ChevronIcon direction="right" /></button>
-              <span className="lightbox-counter">{activeImage + 1} / {images.length}</span>
+              <span className="lightbox-counter">{lightboxImg.label} — {activeImage + 1} / {images.length}</span>
             </>
+          )}
+          {lightboxOverride && (
+            <span className="lightbox-counter">{lightboxImg.label}</span>
           )}
         </>
       )}
@@ -331,6 +356,41 @@ export default function ProjectDetail() {
           font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.1em; color: #5a5855;
           background: rgba(245,242,238,0.85); backdrop-filter: blur(12px);
           padding: 0.3rem 0.7rem; border-radius: 999px; border: 0.5px solid rgba(111,121,124,0.2);
+        }
+
+        .hero-compare {
+          display: flex; align-items: center; justify-content: center;
+          width: 100%; height: 100%; gap: 1.5rem;
+        }
+        .hero-compare-panel {
+          flex: 1; height: 100%; min-width: 0; min-height: 0;
+          display: flex; flex-direction: column; align-items: center; justify-content: center;
+          gap: 0.85rem; cursor: zoom-in;
+        }
+        .hero-compare-panel img {
+          max-width: 100%; max-height: calc(100% - 2.5rem); object-fit: contain;
+          box-shadow: 0 30px 80px rgba(0,0,0,0.12); border-radius: 2px;
+        }
+        .hero-compare-label {
+          font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+          color: #5a5855; background: rgba(245,242,238,0.9); backdrop-filter: blur(12px);
+          padding: 0.35rem 0.9rem; border-radius: 999px; border: 0.5px solid rgba(111,121,124,0.2);
+          flex-shrink: 0;
+        }
+        .hero-compare-arrow {
+          font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #9cb2af; flex-shrink: 0;
+        }
+        @media (max-width: 1000px) {
+          .hero-compare { flex-direction: column; gap: 1rem; }
+          .hero-compare-arrow { transform: rotate(90deg); }
+        }
+
+        .hero-caption {
+          position: absolute; top: 1.5rem; left: 1.5rem;
+          font-family: 'Noto Serif KR', serif; font-size: 13px; letter-spacing: 0.02em; color: #2a2927;
+          background: rgba(245,242,238,0.85); backdrop-filter: blur(12px);
+          padding: 0.4rem 0.9rem; border-radius: 999px; border: 0.5px solid rgba(111,121,124,0.2);
+          max-width: calc(100% - 3rem); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
         }
 
         /* Lightbox — fixed 85vw width, height follows aspect ratio, scrolls if taller than viewport */
