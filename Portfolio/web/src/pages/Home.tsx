@@ -84,9 +84,9 @@ void main() {
 
 type NavItem = { kr: string; en: string; to: string; isRoute: boolean }
 const NAV_ITEMS: NavItem[] = [
-  { kr: '회사 프로젝트', en: 'Company Projects', to: '/projects', isRoute: true  },
-  { kr: '개인 프로젝트', en: 'Personal Projects', to: '#personal', isRoute: false },
-  { kr: '소개',         en: 'About',             to: '#about',   isRoute: false  },
+  { kr: '회사 프로젝트', en: 'Company Projects',  to: '/projects',          isRoute: true  },
+  { kr: '개인 프로젝트', en: 'Personal Projects', to: '/personal-projects', isRoute: true  },
+  { kr: '소개',         en: 'About',             to: '#about',             isRoute: false },
 ]
 
 export default function Home() {
